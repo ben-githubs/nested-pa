@@ -57,5 +57,5 @@ jobs:
         name: Push and Create PR
         if: ${{ steps.check_updates.outputs.has_changes == 'yes' }}
         run: |
-          git push --set-upstream origin panther_analysis_sync_v3.31.0
+          git push --set-upstream origin ${{ steps.create_branch.outputs.branch_name }}
           gh pr create --title "Update Panther Analysis to ${{ steps.get_tag.outputs.tag }}" --fill --base ${{ env.YOUR_REPO_PRIMARY_BRANCH_NAME }} --repo ${{ env.YOUR_REPO_NAME }}
