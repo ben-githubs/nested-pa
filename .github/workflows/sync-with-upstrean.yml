@@ -15,6 +15,7 @@ jobs:
       YOUR_REPO_PRIMARY_BRANCH_NAME: "main"
       YOUR_REPO_NAME: "ben-githubs/nested-pa"
       PATH_TO_PA: "upstream"
+      UPSTREAM_REPO: "ben-githubs/upstream"
     steps:
       ## CRAETE LOCAL REPO
       - name: Create Local Repo
@@ -26,7 +27,7 @@ jobs:
         name: Get Latest Release
         run: |
           LATEST_TAG=$(git -c 'versionsort.suffix=-' \
-            ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/panther-labs/panther-analysis.git '*.*.*' \
+            ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/${{ env.UPSTREAM_REPO }}.git '*.*.*' \
             | tail --lines=1 \
             | cut -d '/' -f 3)
           echo "tag=$LATEST_TAG" >> $GITHUB_OUTPUT
