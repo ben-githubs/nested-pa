@@ -50,7 +50,7 @@ jobs:
         name: Check for Updates
         run: |
           [[ ! -z $(git diff ${{ steps.create_branch.outputs.branch_name }} ${{ env.YOUR_REPO_PRIMARY_BRANCH_NAME }}) ]] && HAS_CHANGES="yes" || HAS_CHANGES="no"
-          echo $HAS_CHANGES
+          echo "HasChanges: $HAS_CHANGES"
           echo "has_changes=$HAS_CHANGES ">> $GITHUB_OUTPUT
       ## PUSH AND MAKE PR
       - id: create_pr
