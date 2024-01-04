@@ -15,7 +15,7 @@ jobs:
       YOUR_REPO_PRIMARY_BRANCH_NAME: "main"
       YOUR_REPO_NAME: "ben-githubs/nested-pa"
       PATH_TO_PA: "upstream"
-      UPSTREAM_REPO: "ben-githubs/upstream"
+      UPSTREAM_REPO: "ben-githubs/upstream-test"
     steps:
       ## CRAETE LOCAL REPO
       - name: Create Local Repo
